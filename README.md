@@ -33,7 +33,7 @@ print(user['username'])
 client.users.update(user['uid'], **{'fullname': 'David Vuong'})
 
 # Iterate over all topics in category given the `cid`.
-status_code, topics = client.topics.list(1):
+status_code, topics = client.topics.list(1)
 for topic in topics:
     print(topic['title'])
 ```
