@@ -8,7 +8,10 @@ Licensed MIT
 from __future__ import unicode_literals
 
 import requests
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    from urllib import parse as urlparse
 
 from pynodebb.settings import settings
 
