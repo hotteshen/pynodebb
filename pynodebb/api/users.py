@@ -136,4 +136,4 @@ class User(Resource):
             Successful login returns user data
             Failure login returns result message
         """
-        return self.client.post('api/ns/login', {'username': username, 'password': password})
+        return self.client.post('api/ns/login', **{'username': username, 'password': password})
