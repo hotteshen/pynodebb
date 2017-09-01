@@ -8,6 +8,19 @@
 
 pyNodeBB is a Python client for the NodeBB API (still under development).
 
+
+### Requirement
+
+* Python
+
+  * requirement.txt
+
+* Nodebb
+
+  * [nodebb-plugin-write-api](https://github.com/NodeBB/nodebb-plugin-write-api)
+  * [nodebb-plugin-ns-login](https://github.com/NicolasSiver/nodebb-plugin-ns-login)
+
+
 ### Install
 
 ```

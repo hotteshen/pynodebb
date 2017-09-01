@@ -121,3 +121,19 @@ class User(Resource):
         return self.client.get(
             ('/api/user/%s' if is_username else '/api/user/uid/%s') % id_
         ) if id_ else (404, 'Not Found')
+
+    def login(self, username, password):
+        """You must install nodebb-plugin-ns-login first
+
+        Simple API endpoint for external login. 
+        Special use case: external login check if user's credentials are valid.
+
+        Args:
+            username (str): The NodeBB user's email or username.
+            password (str): The NodeBB user's password
+
+        Returns:
+            Successful login returns user data
+            Failure login returns result message
+        """
+        return self.client.post('api/ns/login', {'username': username, 'password': password})
