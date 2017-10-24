@@ -57,6 +57,6 @@ class Client(object):
 
         """
         if not force:
-            kwargs = {k: v for k, v in kwargs.iteritems() if v}
+            kwargs = {k: v for k, v in kwargs.items() if v}
         settings.update(kwargs)
         return settings
