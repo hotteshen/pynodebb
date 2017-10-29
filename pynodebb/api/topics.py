@@ -100,6 +100,7 @@ class Topic(Resource,
             tuple: Tuple in the form (response_code, json_response)
 
         """
-        if interval not in self.POPULAR_TIME_INTERVALS:
-            raise ValueError('Invalid topic type: %s' % interval)
-        return self._extract_topics(self.client.get('/api/popular/' + interval))
+        #if interval not in self.POPULAR_TIME_INTERVALS:
+        #    raise ValueError('Invalid topic type: %s' % interval)
+        #return self._extract_topics(self.client.get('/api/popular/' + interval))
+        return self._extract_topics(self.client.get('/api/popular'))
