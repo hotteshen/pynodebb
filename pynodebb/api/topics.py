@@ -55,8 +55,10 @@ class Topic(Resource,
     def delete(self, tid):
         raise NotImplementedError
 
-    def post(self, tid, content):
-        raise NotImplementedError
+    def post(self, tid, uid, toPid, content):
+        return self.client.post('/api/v1/topics/%s' %( tid, ), **{
+            '_uid': uid, 'toPid': toPid, 'content': content,
+        })
 
     def tag(self, tid, tags):
         raise NotImplementedError
