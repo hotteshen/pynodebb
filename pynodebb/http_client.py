@@ -1,17 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """pynodebb/http_client.py
-
 Copyright (c) 2015 David Vuong <david.vuong256@gmail.com>
 Licensed MIT
 """
 from __future__ import unicode_literals
 
 import requests
-try:
-    import urlparse
-except ImportError:
-    from urllib import parse as urlparse
+from urllib.parse import urlparse
+from urllib.parse import urljoin
 
 from pynodebb.settings import settings
 
@@ -24,18 +21,14 @@ class HttpClient(object):
 
     def _request(self, method, path, **kwargs):
         """Simple wrapper over `requests.request`.
-
         Formats the request headers, payload and endpoint and returns the
         response status_code and response.json in a tuple.
-
         Args:
             method (str): The HTTP method we want to make a request with.
             path (str): The "path" section of the URI e.g. `/api/users/5/`.
             **kwargs: The request payload (request body).
-
         Returns:
             tuple: A tuple in the form (response_code, response_json)
-
         """
         if '_uid' not in kwargs:
             kwargs.update({'_uid': self.admin_uid})
