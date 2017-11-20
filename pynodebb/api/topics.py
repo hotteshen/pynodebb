@@ -70,7 +70,8 @@ class Topic(Resource,
         status_code, response_body = response
         if status_code != 200:
             return status_code, response_body
-        return status_code, response_body.get('topics', [])
+        # return status_code, response_body.get('topics', [])
+        return status_code, response_body
 
     def get_recent(self):
         """Fetches the first set of recent topics.
