@@ -15,7 +15,8 @@ from __future__ import unicode_literals
 # e.g. `import requests`.
 try:
     from pynodebb.client import Client
-except ImportError:
+except ImportError as e:
+    print(e)
     Client = None
 
 
