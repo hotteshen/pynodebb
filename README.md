@@ -8,6 +8,19 @@
 
 pyNodeBB is a Python client for the NodeBB API (still under development).
 
+
+### Requirement
+
+* Python
+
+  * requirement.txt
+
+* Nodebb
+
+  * [nodebb-plugin-write-api](https://github.com/NodeBB/nodebb-plugin-write-api)
+  * [nodebb-plugin-ns-login](https://github.com/NicolasSiver/nodebb-plugin-ns-login)
+
+
 ### Install
 
 ```
@@ -33,7 +46,7 @@ print(user['username'])
 client.users.update(user['uid'], **{'fullname': 'David Vuong'})
 
 # Iterate over all topics in category given the `cid`.
-status_code, topics = client.topics.list(1):
+status_code, topics = client.topics.list(1)
 for topic in topics:
     print(topic['title'])
 ```

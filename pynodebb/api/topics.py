@@ -55,8 +55,10 @@ class Topic(Resource,
     def delete(self, tid):
         raise NotImplementedError
 
-    def post(self, tid, content):
-        raise NotImplementedError
+    def post(self, tid, uid, toPid, content):
+        return self.client.post('/api/v1/topics/%s' %( tid, ), **{
+            '_uid': uid, 'toPid': toPid, 'content': content,
+        })
 
     def tag(self, tid, tags):
         raise NotImplementedError
@@ -68,7 +70,8 @@ class Topic(Resource,
         status_code, response_body = response
         if status_code != 200:
             return status_code, response_body
-        return status_code, response_body.get('topics', [])
+        # return status_code, response_body.get('topics', [])
+        return status_code, response_body
 
     def get_recent(self):
         """Fetches the first set of recent topics.
@@ -100,6 +103,7 @@ class Topic(Resource,
             tuple: Tuple in the form (response_code, json_response)
 
         """
-        if interval not in self.POPULAR_TIME_INTERVALS:
-            raise ValueError('Invalid topic type: %s' % interval)
-        return self._extract_topics(self.client.get('/api/popular/' + interval))
+        #if interval not in self.POPULAR_TIME_INTERVALS:
+        #    raise ValueError('Invalid topic type: %s' % interval)
+        #return self._extract_topics(self.client.get('/api/popular/' + interval))
+        return self._extract_topics(self.client.get('/api/popular'))

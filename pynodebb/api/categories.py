@@ -49,4 +49,5 @@ class Category(Resource):
         status_code, response_body = self.client.get('/api/categories')
         if status_code != 200:
             return status_code, response_body
-        return status_code, response_body.get('categories', [])
+        # return status_code, response_body.get('categories', [])
+        return status_code, response_body
